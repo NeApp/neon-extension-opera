@@ -1,0 +1,45 @@
+{
+  "title": "Neon",
+  "description": "Scrobble your Google Play Music and Spotify listening activity to Last.fm, Libre.fm and ListenBrainz",
+
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "unlimitedStorage"
+  ],
+
+  "background": {
+    "scripts": [
+      "common.js",
+      "background/common.js",
+
+      "background/messaging/messaging.js",
+      "background/messaging/services/contentScript.js",
+      "background/messaging/services/library.js",
+      "background/messaging/services/scrobble.js",
+
+      "background/main/main.js",
+      "background/migrate/migrate.js"
+    ]
+  },
+  "options_ui": {
+    "page": "configuration/configuration.html",
+    "open_in_tab": true
+  },
+
+  "features": {
+    "contentScripts": "dynamic",
+    "permissions": "dynamic"
+  },
+  "modules": {
+    "destinations": [
+      "neon-extension-destination-lastfm",
+      "neon-extension-destination-librefm",
+      "neon-extension-destination-listenbrainz"
+    ],
+    "sources": [
+      "neon-extension-source-googlemusic",
+      "neon-extension-source-spotify"
+    ]
+  }
+}
