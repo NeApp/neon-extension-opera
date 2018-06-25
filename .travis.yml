@@ -3,23 +3,27 @@ node_js:
 - '7'
 before_install:
 - npm install -g npm@'^5.10.0'
-- npm install NeApp/neon-extension-build#$TRAVIS_BRANCH || npm install NeApp/neon-extension-build#develop
+- npm install -g NeApp/neon-extension-build#$TRAVIS_BRANCH || npm install -g NeApp/neon-extension-build#develop
 install:
-- neb install:travis $TRAVIS_BRANCH
-- npm install
-- npm dedupe
-- npm ls
+- neb travis:install $TRAVIS_BRANCH
+- neb package:validate
+- git diff --exit-code
 script:
-- git reset --hard
-- npm run test
 - npm run build
+- npm run travis:test
+- npm run travis:coverage
+- npm run travis:lint
+- if [ ! -f ./Build/Coverage/lcov.info ]; then exit 1; fi
+after_success:
+- npm install -g coveralls
+- cat ./Build/Coverage/lcov.info | coveralls
 deploy:
 - provider: releases
   skip_cleanup: true
   api_key:
     secure: T7vz6ChcPyOh6oJn8zn2Qltovf/A5KtAlctgg23ahbt1sO5+ick1ONoKRMWpu4aUJh42wxkThyEP2/UYqn7TK0TzACW0ojPuO778WWpK9jLhORyjaOij4XTxPHtLGVuexBIZdQONg5NApW+lyEYSBAcbCvxGI3LDF7vdAlth86eSYvq1WMpEw8lf80NOw/5JsR8e2/Bc8Np6dbfOvCMt7Sny5JkArLOn1XgwYgRe91rUmGh2qplr2s97PdwnaLIIXF4MVkjpSm3CmHEbRNRPyMdZisVAT4mhyNp+3thzBsA60LB//XxRzOtpRkgEeD8fJ+FPge6mTcCmtTCeBlDS7swQop/SZlAIkoIj+PfMcc+29MgN9CiqBVt3J8aNNP/W4fm2HoDQqZcHzAmzbLum/bLP+4ZJqJm64mRNYVcuJK9MQXwbTRJMY5vSYYcDfEbTtuUQECvRNd25TMjg0h8ehkQGksbmelnlP0ziNQGFKIx3OdKh0ZarmsK0f7up1e/jEcxGCuxfyenUQ6/mt4XejrTked52JfQij289MmTecIDie5kkX9x41UAJqWfUC2LR7z56fouOMYFp40XGwrhYAnMmsFqpeou/HR/VjsikKXFgApGTAPxlbWd753ucgZop1Yh+pqkSJJWoL90fKs7+WbtUafDHqKRo/JikaUP9tR0=
   file_glob: true
-  file: build/production/Neon*.zip
+  file: Build/Production/Neon*.zip
   on:
     repo: NeApp/neon-extension-opera
     tags: true
@@ -27,7 +31,7 @@ deploy:
   skip_cleanup: true
   key:
     secure: ifHABqbV6V4hQoAURtnUhxWDVcXD4OPrsApgZOgIyCokz0NM/Z/SXYHIpayz/yKbwuNArYzjrl5TLH4gJnOsn0vgmWdHtKezW+gSkgE3US+01yLMgs90JlL2ZmD9uLyuHDu7kLnowFIQpxGrB9BsKwAya8EXcOaXm6b79I7Vw7qeIn+Em3k8ojd9c4oA/wY0d+Dq3MNfryfCHcPnsOtNMjdB3sPUoBlCLS3EcqChoJ6U3FaGCvg2cSfgeu9H/16rKhBl0YVLRYqEPq2Y0xMLu4wuQyff95zo4rw/ZeN69K3AYsMVfTsuaelWNQ6Omom/UPfvtE4uKPUnVCH5+h5cGp3GIZL2I4vk2uSt9wbuhQOLPFk94FTaHFeOSCPnI35FzAJfysiZ1HNlIs1FiXEU+bW5a9CBDcK3hDbUldkpi2aofT3vG1yqwPz3gJUyoty0ibjdZsuWAocW7a8zVQ0Dvb9n3vKeHYZvth1d70OErA+4dodPLqnWg8HjeWpwdSeD1Mc92Px/qmM6mbcfIR2Vp+e0cGRljBAo6ZzoRCjHlvQnzuuvORSYBw8ZFhO7WIT6Ixo5Czj6tLo3SI/k1oZuyNpLfdpzSSfQizGjDVOJ2yEsvwCQz5DPrQTXSiecMeSFGtkWIH89r5il0BhsyItwc+g77kcmgXqU8irpgcbf2yw=
-  file: build/production/bintray.json
+  file: Build/Production/bintray.json
   user: neapp-ci
   on:
     repo: NeApp/neon-extension-opera
