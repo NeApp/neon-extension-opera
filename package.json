@@ -1,6 +1,6 @@
 {
   "name": "neon-extension-opera",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0-beta.5",
   "description": "Neon Extension for Opera",
   "keywords": [
     "neon",
@@ -23,8 +23,8 @@
     "url": "https://github.com/NeApp/neon-extension-opera"
   },
   "dependencies": {
-    "neon-extension-build": "file:neon-extension-build-2.0.0-beta.3.tgz",
-    "neon-extension-core": "file:neon-extension-core-2.0.0-beta.3.tgz",
+    "neon-extension-build": "file:neon-extension-build-2.0.0-beta.5.tgz",
+    "neon-extension-core": "file:neon-extension-core-2.0.0-beta.4.tgz",
     "neon-extension-destination-lastfm": "file:neon-extension-destination-lastfm-2.0.0-beta.3.tgz",
     "neon-extension-destination-librefm": "file:neon-extension-destination-librefm-2.0.0-beta.3.tgz",
     "neon-extension-destination-listenbrainz": "file:neon-extension-destination-listenbrainz-2.0.0-beta.3.tgz",
