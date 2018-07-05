@@ -1,6 +1,8 @@
 # Radon Extension for Opera
 [![](https://img.shields.io/travis/NeApp/neon-extension-opera.svg)](https://travis-ci.org/NeApp/neon-extension-opera) [![](https://img.shields.io/coveralls/github/NeApp/neon-extension-opera/master.svg)](https://coveralls.io/github/NeApp/neon-extension-opera) [![](https://img.shields.io/github/release/NeApp/neon-extension-opera.svg?label=stable)](https://github.com/NeApp/neon-extension-opera/releases) [![](https://img.shields.io/bintray/v/neapp/neon-extension/neon-extension-opera.svg?label=latest)](https://bintray.com/neapp/neon-extension/neon-extension-opera) ![](https://img.shields.io/github/license/NeApp/neon-extension-opera.svg)
 
+> Extension is currently being renamed to *Radon*, there will likely still be some references to *Neon* until this has been completed.
+
 ### Issues
 
 Issues can be reported in the [neon-extension](https://github.com/NeApp/neon-extension) repository.
