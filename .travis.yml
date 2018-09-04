@@ -33,7 +33,7 @@ deploy:
   key:
     secure: YgzG2rCz2lCcG76Ed46fJvYW1IV604lUiHlEnDoZ1tEcts1blueliF0UzR+rrlCekjGkaNwouPkFXk8lnc4Wf2+6F6igt22JAnSM2eiCb0IjNG7lFTxA0eu69/I6QK9JDJqYnopT0LZDkrp5nw4RBvQz2t6TtQtywSowBjN7nJ1eCAUOqSMOjcrun3v15zsrBMiI7576YueQ/+s+dLjZwvDphRT8YWm9PVtVwSnJhfuL7NQkBt/jMb2iugBjk6DXL5e1wJBplFypZasfGmBkhDtec9kElI/wpxOCrRTN3gKYp4diMTOA18LVDElH6cwsokfZfF7M5BI9q4xTPl22CiWAQ/wukAt0HbwrFnL+bT6qb6+KiqY7PCpdVssktedlFvs2RqBK8FYjplNYq10t64LWm7S+jZVaCLDpJ//zEKlDzKvXwVQmJ51locgRQe/blo2lhYFD8f4uCzE9Z6crO2diEP0lmX+cd+YPmyWmvcCAG07D4ZF3RxYCaRw2CvkUr0vXSOSq1MgnxY9h7+aoRGcd9W5CXpnm21TIig7iOl44QLQDXXNOBLOX9sIsZZnQLC2GrFg4D5KMM/Jqh29Z3el/fNDaQmY4M71ZNeGDsvQmrcZIHgj/DkjM4FuBMbGH4v1cIIsF9AbgC5g9Sp5ai+lfalC8JGldJmX/UsUI3BA=
   file: Build/Production/bintray.json
-  user: neapp-ci
+  user: radon-ci
   on:
     repo: RadonApp/radon-extension-opera
     all_branches: true
